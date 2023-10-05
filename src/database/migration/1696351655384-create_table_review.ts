@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableIndex } from 'typeorm';
 
 export class CreateTableReview1696351655384 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -68,6 +68,55 @@ export class CreateTableReview1696351655384 implements MigrationInterface {
         ],
       }),
       true,
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_TIME_GMT',
+        columnNames: ['time_gmt'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_RATING',
+        columnNames: ['rating'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_ORGANIZATION',
+        columnNames: ['organization'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_CATEGORY',
+        columnNames: ['category'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_STATE',
+        columnNames: ['state'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_CITY',
+        columnNames: ['city'],
+      }),
+    );
+    await queryRunner.createIndex(
+      'review',
+      new TableIndex({
+        name: 'IDX_STREET',
+        columnNames: ['street'],
+      }),
     );
   }
 

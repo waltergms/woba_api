@@ -11,4 +11,34 @@ export class UtilsHelper {
     );
     return formatedDate;
   }
+
+  formatDateForBetween(dateStart: string, dateEnd: string): any {
+    const intYearStart = parseInt(dateStart.split('/')[2]);
+    const intMonthStart = parseInt(dateStart.split('/')[1]) - 1;
+    const intDayStart = parseInt(dateStart.split('/')[0]);
+
+    const intYearEnd = parseInt(dateEnd.split('/')[2]);
+    const intMonthEnd = parseInt(dateEnd.split('/')[1]) - 1;
+    const intDayEnd = parseInt(dateEnd.split('/')[0]);
+
+    const startDate = new Date(
+      intYearStart,
+      intMonthStart,
+      intDayStart,
+      0,
+      0,
+      0,
+    );
+    const endDate = new Date(
+      intYearEnd,
+      intMonthEnd,
+      intDayEnd,
+      23,
+      59,
+      59,
+      59,
+    );
+
+    return { startDate, endDate };
+  }
 }

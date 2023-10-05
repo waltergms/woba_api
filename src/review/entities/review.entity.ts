@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
+@Index('IDX_TIME_GMT', { synchronize: false })
 export class Review {
   @PrimaryGeneratedColumn()
   id?: number;
