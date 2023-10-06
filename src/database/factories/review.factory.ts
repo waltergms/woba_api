@@ -3,9 +3,9 @@ import { UtilsHelper } from '../../commom/helpers/utils';
 
 const utilsHelper = new UtilsHelper();
 
-const reviewFactory = (value: any): CreateReviewDto => {
+const reviewFactory = async (value: any): Promise<CreateReviewDto> => {
   const reviewData = new CreateReviewDto();
-  reviewData.time_gmt = utilsHelper.formatDateReview(value?.Time_GMT);
+  reviewData.time_gmt = await utilsHelper.formatDateReview(value?.Time_GMT);
   reviewData.phone = value?.Phone ? parseInt(value.Phone) : 0;
   reviewData.organization = value?.Organization || '';
   reviewData.olf = value?.OLF || '';

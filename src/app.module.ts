@@ -4,21 +4,18 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { ReviewModule } from './review/review.module';
-import * as dotenv from 'dotenv';
-
-//Load env variables
-dotenv.config();
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      host: 'localhost',
+      port: 3306,
+      username: 'woba',
+      password: 'wobapwd',
+      database: 'woba',
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+      synchronize: false,
     }),
     ReviewModule,
   ],

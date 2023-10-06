@@ -26,39 +26,11 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Requirements
-
-## !!IMPORTANT!!
-
-DATABASE:
-MYSQL with "Woba" database created
-
-USER:
-User "woba" with "wobapwd" as password
-
 ## Installation
-
-Unzip src/database/yelp_database.zip
-
-Install packages
 
 ```bash
 $ yarn install
 ```
-
-Create table structure, indexes, etc...
-
-```bash
-$ yarn run migration:run
-```
-
-Create seeds on table review
-
-```bash
-$ yarn run seed:run
-```
-
-The seed run process long almost 2 minutes to load data into database (mysql/woba).
 
 ## Running the app
 
